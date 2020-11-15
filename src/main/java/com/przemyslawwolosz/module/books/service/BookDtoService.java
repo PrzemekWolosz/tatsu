@@ -26,7 +26,9 @@ public class BookDtoService {
 	}
 
 	public List<BookDto> getAll() {
+
 		List<BookEntity> books = bookRepository.findAll();
+
 		return BookMapper.map(books);
 	}
 
