@@ -6,15 +6,25 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CollectionTatsuUtilsTest {
 
-	@Test
+	@Test // getListOfColorsPerType(String type)
 	public void shouldReturnEmptyListWhenTypeIsNotValid() {
+		assertThat(CollectionTatsuUtils.getListOfColorsPerType("")).hasSize(0).isEmpty();
+		assertThat(CollectionTatsuUtils.getListOfColorsPerType("TYPE_3")).hasSize(0).isEmpty();
+		assertThat(CollectionTatsuUtils.getListOfColorsPerType(null)).hasSize(0).isEmpty();
 	}
 
-	@Test
+	@Test // getListOfColorsPerType(String type)
 	public void shouldReturnFirstGroupOfColors() {
+		assertThat(CollectionTatsuUtils.getListOfColorsPerType("TYPE_1"))
+				.hasSize(3)
+				.containsExactly("red", "blue", "green");
 	}
 
-	@Test
+	@Test // getListOfColorsPerType(String type)
 	public void shouldReturnSecondGroupOfColors() {
+		assertThat(CollectionTatsuUtils.getListOfColorsPerType("TYPE_2"))
+				.hasSize(2)
+				.containsExactly("black", "white");
+
 	}
 }
